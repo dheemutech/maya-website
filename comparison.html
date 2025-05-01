@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindi TTS Model Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>:root{--bg:#000;--fg:#eee;--accent:#39ff14;}body{font-family:'Roboto';max-width:800px;margin:0 auto;padding:20px;background:var(--bg);color:var(--fg);}h1{color:var(--accent);}a{color:var(--accent);}audio{width:100%;max-width:600px;margin-bottom:1rem;}</style>
+</head>
+<body>
+<h1>Hindi TTS Model Comparison</h1>
+<p>This comparison showcases the current state of Hindi Text-to-Speech models. Our model <strong>Veena</strong> demonstrates remarkable performance, surpassing all Indian TTS models and matching the quality of ElevenLabs. The speech is completely natural and can adapt to any sentence structure. We are actively training multiple voices and expanding our language support to include more Indian languages.</p>
+<p><em>Input text for all models:</em><br>"अगर ऑर्डर डिलीवर नहीं होता है, तो आपका पूरा पैसा वापस कर दिया जाएगा। हम इसकी पूरी ज़िम्मेदारी लेते हैं, आपको कुछ भी करने की ज़रूरत नहीं है।"</p>
+
+<h2>Audio Samples</h2>
+<h3>Veena (Our Model)</h3>
+<audio controls><source src="ttsaudios/veena.wav" type="audio/wav"></audio>
+
+<h3>ElevenLabs</h3>
+<audio controls><source src="ttsaudios/elevenlabs.mp3" type="audio/mpeg"></audio>
+
+<h3>OpenAI</h3>
+<audio controls><source src="ttsaudios/openai.wav" type="audio/wav"></audio>
+
+<h3>Sarvam AI</h3>
+<audio controls><source src="ttsaudios/sarvam.wav" type="audio/wav"></audio>
+
+<h3>Krutrim</h3>
+<audio controls><source src="ttsaudios/krutrim.m4a" type="audio/mp4"></audio>
+
+<p><a href="tts.html">← Back to Veena sample</a> | <a href="index.html">Home</a></p>
+</body>
+</html> 

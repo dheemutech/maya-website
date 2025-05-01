@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maya - responses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto';
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-transform: lowercase;
+            line-height: 1.4;
+            background-color: #000;
+            color: #fff;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-weight: 300;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .comparison-table th {
+            background-color: #111;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+        .comparison-table td {
+            font-size: 1.1em;
+        }
+        .model-name {
+            text-align: left;
+            font-weight: 400;
+        }
+        .top-score {
+            font-weight: 500;
+            color: #fff;
+            background-color: #222;
+        }
+        .parameter {
+            text-align: left;
+            font-weight: 400;
+        }
+        .overall-row {
+            border-top: 2px solid #333;
+        }
+        .overall-row td {
+            font-weight: 400;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .back-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>responses</h1>
+
+    <table class="comparison-table">
+        <tr>
+            <th>parameter</th>
+            <th>telugu gemma</th>
+            <th>gpt-4</th>
+            <th>gemini 2.5 pro</th>
+            <th>claude 3.7</th>
+        </tr>
+        <tr>
+            <td class="parameter">colloquialism & naturalness</td>
+            <td class="top-score">0.95</td>
+            <td>0.85</td>
+            <td>0.90</td>
+            <td>0.70</td>
+        </tr>
+        <tr>
+            <td class="parameter">readability & clarity</td>
+            <td>0.80</td>
+            <td class="top-score">0.90</td>
+            <td>0.85</td>
+            <td>0.75</td>
+        </tr>
+        <tr>
+            <td class="parameter">modernity & relevant vocabulary</td>
+            <td class="top-score">0.95</td>
+            <td>0.85</td>
+            <td>0.90</td>
+            <td>0.75</td>
+        </tr>
+        <tr>
+            <td class="parameter">relatability & resonance</td>
+            <td>0.90</td>
+            <td>0.85</td>
+            <td class="top-score">0.90</td>
+            <td>0.65</td>
+        </tr>
+        <tr class="overall-row">
+            <td class="parameter">overall impression score</td>
+            <td class="top-score">0.90</td>
+            <td>0.86</td>
+            <td>0.89</td>
+            <td>0.71</td>
+        </tr>
+    </table>
+
+    <a href="index.html" class="back-link">← back to home</a>
+</body>
+</html> 

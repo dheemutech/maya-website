@@ -5,37 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>maya</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root { --bg: #000; --fg: #eee; --accent: #39ff14; }
+        body { 
             font-family: 'Roboto';
             text-align: left;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            text-transform: lowercase;
-            line-height: 1.4;
-            background-color: #000;
-            color: #fff;
+            line-height: 1.3;
+            background-color: var(--bg); 
+            color: var(--fg); 
         }
-        h1, h2 {
-            text-align: left;
+        h1, h2 { 
+            font-family: 'Space Mono', monospace; 
+            text-transform: uppercase; 
+            letter-spacing: .1em; 
         }
-        h1 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 400;
+        h1 { 
+            font-size: 3.5rem; 
+            margin: 2rem 0; 
+            font-weight: 700; 
+            text-align: center; 
         }
-        h2 {
-            font-size: 1.3em;
-            margin: 25px 0 15px;
-            font-weight: 400;
+        h2 { 
+            font-size: 2rem; 
+            margin: 2rem 0 1rem; 
+            font-weight: 700; 
         }
-        p {
-            margin-bottom: 15px;
-            font-weight: 300;
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
         }
-        .highlight {
-            font-weight: 400;
+        p { 
+            font-weight: 400; 
+        }
+        ul li { 
+            list-style: none; 
+            position: relative; 
+            padding-left: 1.5em; 
+        }
+        ul li::before { 
+            content: '▸'; 
+            color: var(--accent); 
+            position: absolute; 
+            left: 0; 
+        }
+        a { 
+            color: var(--fg);
+            text-decoration: none;
+            transition: text-decoration .2s;
+        }
+        a:hover { 
+            text-decoration: underline;
+            color: var(--accent);
+        }
+        h1, h3 { color: var(--accent); }
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(1rem); 
+            transition: opacity .6s ease, transform .6s ease; 
+        }
+        .visible { 
+            opacity: 1; 
+            transform: translateY(0); 
         }
         table {
             margin: 20px auto;
@@ -53,54 +88,63 @@
             background-color: #111;
             font-weight: 400;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 15px 0;
+        audio {
+            width: 100%;
+            max-width: 600px;
         }
-        li {
-            margin: 8px 0;
-            font-weight: 300;
+        img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid var(--accent);
         }
     </style>
 </head>
 <body>
-    <h1>maya</h1>
+    <h1 class="hero fade-in">maya</h1>
 
-    <p>current ai models are shit at indian languages. they either spit out formal text that no one uses, or need massive prompts that cost a fortune.</p>
+    <p class="fade-in">We are building AI for India — and we're open-sourcing most of it.</p>
 
-    <ul>
-        <li>open source models? they're useless - produce formal text no one uses</li>
-        <li>closed source models? they're expensive and need massive prompts</li>
-        <li>current solutions? they either don't work or aren't practical</li>
-    </ul>
+    <h2 class="fade-in">So far we've shipped</h2>
 
-    <p>we're building something different. a small, efficient llm that generates real indian language text. no fancy stuff, just clean, everyday language that people actually use.</p>
+    <!-- Veena sample section -->
+    <h3 class="fade-in">Veena</h3>
+    <p class="fade-in">Open-source text-to-speech model for Indian languages.</p>
+    <p class="fade-in"><em>Demo text:</em> "अगर ऑर्डर डिलीवर नहीं होता है, तो आपका पूरा पैसा वापस कर दिया जाएगा…"</p>
+    <audio controls class="fade-in">
+        <source src="ttsaudios/veena.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <p class="fade-in">Quality on par with ElevenLabs — and fully open-source.</p>
+    <p class="fade-in"><a href="tts.html">See full TTS model comparison →</a></p>
 
-    <p>what's next:</p>
-    <table>
-        <tr>
-            <th>now</th>
-            <td>training training training</td>
-        </tr>
-        <tr>
-            <th>next</th>
-            <td>sota model from india</td>
-        </tr>
-        <tr>
-            <th>soon</th>
-            <td>api release</td>
-        </tr>
-    </table>
+    <!-- Gemma section -->
+    <h3 class="fade-in">Indic Gemma</h3>
+    <p class="fade-in">13B text-to-text model trained for conversational Indian languages. <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank">Check it out →</a></p>
+    <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank"><img src="Huggingfacegemma.png" alt="Indic Gemma preview" style="width:100%; max-width:600px; display:block; margin:1rem auto; border:1px solid var(--accent);"></a>
 
-    <p>built by:</p>
-    <ul>
-        <li>dheemanth reddy</li>
-        <li>bharath</li>
-        <li>aadithya</li>
-        <li>vaishnav potlapalli</li>
-    </ul>
+    <div class="fade-in team" style="text-align:center; margin-top:3rem;">
+        Built by <a href="https://dheemanthreddy.com" target="_blank">Dheemanth Reddy</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/bharath-kumar92/?originalSubdomain=in" target="_blank">Bharath Kumar</a>
+    </div>
 
-    <p>our work on <a href="https://huggingface.co/maya" style="color: #0066cc; text-decoration: none;">hugging face</a> and we post here <a href="https://twitter.com/maya" style="color: #0066cc; text-decoration: none;">twitter</a></p>
+    <footer class="fade-in" style="margin-top:4rem; font-size:0.85rem; color:#777; display:flex; justify-content:space-between; align-items:center;">
+        <div style="text-align:left;">
+            Backed by <a href="https://www.livetheresidency.com/" target="_blank">The Residency</a> &amp; <a href="https://localhosthq.com/" target="_blank">Localhost</a>
+        </div>
+        <div style="text-align:right;">
+            © 2025 Vision Technologies Private Limited — Made with ♥ for India
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          const els=document.querySelectorAll('h1,h2,h3,p,ul,table,audio,img,footer,div.team');
+          const obs=new IntersectionObserver((entries,observer)=>{
+            entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target);} });
+          },{threshold:0.1});
+          els.forEach(el=>{ el.classList.add('fade-in'); obs.observe(el); });
+        });
+    </script>
 </body>
-</html> 
+</html>
