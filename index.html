@@ -113,6 +113,17 @@
         .tagline { text-align: center; }
         .section-title { font-size: 1.5rem; }
         .product-section { margin: 3rem 0; }
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.4rem; }
+            h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+            .tagline { font-size: 1rem; }
+            .product-section { margin: 2rem 0; }
+            .audio-player { flex-direction: column; align-items: flex-start; }
+            .audio-player button { width: 100%; margin-bottom: 0.5rem; }
+        }
     </style>
 </head>
 <body>
