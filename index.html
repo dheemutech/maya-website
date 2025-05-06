@@ -136,29 +136,41 @@
 
     <!-- Veena sample section -->
     <section class="product-section">
-        <h3 class="fade-in">Veena</h3>
-        <p class="fade-in">Open-source text-to-speech model for Indian languages.</p>
-        <p class="fade-in"><em>Demo text:</em> "अगर ऑर्डर डिलीवर नहीं होता है, तो आपका पूरा पैसा वापस कर दिया जाएगा…"</p>
+    <h3 class="fade-in">Veena</h3>
+    <p class="fade-in">Open-source text-to-speech model for Indian languages.</p>
+    <p class="fade-in"><em>Demo text:</em> "अगर ऑर्डर डिलीवर नहीं होता है, तो आपका पूरा पैसा वापस कर दिया जाएगा…"</p>
 
-        <!-- Player Container -->
-        <div class="veena-player-container fade-in"> <!-- Apply fade-in to the container -->
-            <div class="audio-player"> <!-- UI elements -->
-                <button aria-label="Play">▶</button>
-                <input type="range" value="0" min="0" max="100" step="0.1"> <!-- Initial max, JS updates -->
-                <span class="time">0:00 / 0:00</span>
-            </div>
-            <audio src="ttsaudios/veena.wav" preload="metadata" style="display:none;"></audio> <!-- Hidden audio source -->
+    <!-- Player Container -->
+    <div class="veena-player-container fade-in"> <!-- Apply fade-in to the container -->
+        <div class="audio-player"> <!-- UI elements -->
+            <button aria-label="Play">▶</button>
+            <input type="range" value="0" min="0" max="100" step="0.1"> <!-- Initial max, JS updates -->
+            <span class="time">0:00 / 0:00</span>
         </div>
+        <audio src="ttsaudios/veena.wav" preload="metadata" style="display:none;"></audio> <!-- Hidden audio source -->
+    </div>
 
-        <p class="fade-in">Quality on par with ElevenLabs — and fully open-source.</p>
+    <p class="fade-in">Quality on par with ElevenLabs — and fully open-source.</p>
         <p class="fade-in"><a href="comparison.html">See full TTS model comparison →</a></p>
     </section>
 
     <!-- Gemma section -->
     <section class="product-section">
-        <h3 class="fade-in">Indic Gemma</h3>
-        <p class="fade-in">13B text-to-text model trained for conversational Indian languages. <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank">Check it out →</a></p>
-        <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank"><img src="Huggingfacegemma.png" alt="Indic Gemma preview" style="width:100%; max-width:600px; display:block; margin:1rem auto; border:1px solid var(--accent);"></a>
+    <h3 class="fade-in">Indic Gemma</h3>
+    <p class="fade-in">13B text-to-text model trained for conversational Indian languages. <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank">Check it out →</a></p>
+    <a href="https://huggingface.co/bharathkumar1922001/Gemma3-12b-Indic" target="_blank"><img src="Huggingfacegemma.png" alt="Indic Gemma preview" style="width:100%; max-width:600px; display:block; margin:1rem auto; border:1px solid var(--accent);"></a>
+    </section>
+    
+    <!-- IndicVault section -->
+    <section class="product-section">
+    <h3 class="fade-in">IndicVault</h3>
+    <p class="fade-in">High-quality, instruction-tuned dataset featuring question-answer pairs crafted in the contemporary, everyday language spoken across India in 2025.</p>
+    <a href="https://huggingface.co/datasets/maya-research/IndicVault" target="_blank">
+      <img src="indicvault.jpeg" alt="IndicVault dataset" style="width:100%; max-width:450px; display:block; margin:1rem auto;">
+    </a>
+    <p class="fade-in" style="text-align:center; margin-top:1.5rem;">
+      <a href="https://huggingface.co/datasets/maya-research/IndicVault" target="_blank" style="background-color:var(--accent); color:var(--bg); padding:8px 16px; border-radius:4px; font-weight:500; display:inline-block;">Download Dataset</a>
+    </p>
     </section>
 
     <div class="fade-in team" style="text-align:center; margin-top:3rem;">
