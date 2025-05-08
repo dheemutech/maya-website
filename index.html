@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>maya research</title>
+    <!-- 5. Viewport & charset (tech hygiene) -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+    <!-- 1. Title (≤ 60 chars) -->
+    <title>Maya Research – Open‑Source AI for India | TTS, LLMs & Datasets</title>
+
+    <!-- 2. Meta description (≈ 155 chars) -->
+    <meta name="description"
+          content="Maya Research is India's  AI lab building voice models for Indian languages, conversational LLMs, and high‑quality open datasets."/>
+
+    <!-- 3. Canonical -->
+    <link rel="canonical" href="https://mayaresearch.ai/"/>
+
+    <!-- 4. Open Graph + Twitter Card -->
+    <meta property="og:type"        content="website"/>
+    <meta property="og:url"         content="https://mayaresearch.ai/"/>
+    <meta property="og:title"       content="Maya Research – Open‑Source AI for India"/>
+    <meta property="og:description" content="Building Indic TTS, conversational LLMs, and open datasets for every Indian language."/>
+    <meta property="og:image"       content="https://mayaresearch.ai/og-cover.jpg"/>
+    <meta name="twitter:card"       content="summary_large_image"/>
+    <meta name="twitter:site"       content="@mayaresearchai"/>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22'Space Mono', monospace%22 font-weight=%22bold%22 fill=%22%2339ff14%22>M</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- 6. Organization structured data (JSON‑LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ResearchOrganization",
+      "name": "Maya Research",
+      "url": "https://mayaresearch.ai",
+      "description": "Maya Research is a unique open‑source AI lab building text‑to‑speech models for Indian languages, conversational large language models, and open‑sourcing high‑quality datasets.",
+      "foundingDate": "2025",
+      "logo": "https://mayaresearch.ai/logo.png",
+      "sameAs": [
+        "https://huggingface.co/mayaresearch",
+        "https://github.com/mayaresearch",
+        "https://twitter.com/mayaresearchai"
+      ],
+      "founders": [
+        { "@type": "Person", "name": "Dheemanth Reddy" },
+        { "@type": "Person", "name": "Bharath Kumar" }
+      ],
+      "location": {
+        "@type": "Place",
+        "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+      }
+    }
+    </script>
+
     <style>
         :root { --bg: #000; --fg: #eee; --accent: #39ff14; }
         body { 
