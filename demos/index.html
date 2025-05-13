@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos – Maya Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22'Space Mono', monospace%22 font-weight=%22bold%22 fill=%22%2339ff14%22>M</text></svg>">
+  <style>
+    :root{--bg:#000;--fg:#eee;--accent:#39ff14;}
+    body{font-family:'Roboto';max-width:800px;margin:0 auto;padding:20px;background:var(--bg);color:var(--fg);}
+    h1{color:var(--accent);margin-bottom:2rem;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .audio-demo{margin-bottom:2rem;}
+    .audio-player{display:flex;align-items:center;gap:0.75rem;background:#111;padding:8px 12px;border-radius:4px;max-width:600px;width:100%;margin:0.5rem 0;}
+    .audio-player button{background:none;border:none;color:var(--accent);font-size:1.1rem;cursor:pointer;padding:0;width:20px;text-align:center;}
+    .audio-player input[type=range]{flex:1;height:4px;cursor:pointer;accent-color:var(--accent);}
+    .audio-player .time{font-size:0.8rem;color:var(--fg);white-space:nowrap;}
+    @media (max-width:600px){body{padding:10px;}h1{font-size:2rem;}}
+  </style>
+</head>
+<body>
+  <nav style="margin-bottom:1rem;"><a href="../index.html">← Home</a></nav>
+  <h1>Demos: Audio Samples</h1>
+
+  <div id="audio-list">
+    <!-- Audio players will be injected here by JS -->
+  </div>
+
+  <script>
+    // List of audio files in the demos folder
+    const audioFiles = [
+      { name: '000004.wav', path: '000004.wav' },
+      { name: '000005.wav', path: '000005.wav' },
+      { name: '011934.wav', path: '011934.wav' },
+      { name: '012252.wav', path: '012252.wav' },
+      { name: 'ElevenLabs_2025-05-13T10_46_46_Raju - Top Customer Care Voice_pvc_sp100_s50_sb75_se0_b_m2.mp3', path: 'ElevenLabs_2025-05-13T10_46_46_Raju - Top Customer Care Voice_pvc_sp100_s50_sb75_se0_b_m2.mp3' },
+      { name: 'ElevenLabs_2025-05-13T10_49_58_Raju - Top Customer Care Voice_pvc_sp100_s50_sb75_se0_b_m2.mp3', path: 'ElevenLabs_2025-05-13T10_49_58_Raju - Top Customer Care Voice_pvc_sp100_s50_sb75_se0_b_m2.mp3' },
+      { name: 'ElevenLabs_2025-05-13T10_51_37_Saanu - Warm & Helpful Customer Care Agent_pvc_sp100_s50_sb75_se0_b_m2 copy.mp3', path: 'ElevenLabs_2025-05-13T10_51_37_Saanu - Warm & Helpful Customer Care Agent_pvc_sp100_s50_sb75_se0_b_m2 copy.mp3' }
+    ];
+
+    const audioList = document.getElementById('audio-list');
+    audioFiles.forEach((file, idx) => {
+      const container = document.createElement('div');
+      container.className = 'audio-demo';
+      container.innerHTML = `
+        <div><strong>Demo ${idx + 1}</strong></div>
+        <div class="audio-player">
+          <button aria-label="Play">▶</button>
+          <input type="range" value="0" min="0" max="100" step="0.1">
+          <span class="time">0:00 / 0:00</span>
+        </div>
+        <audio src="${file.path}" preload="metadata" style="display:none;"></audio>
+      `;
+      audioList.appendChild(container);
+    });
+
+    // Custom audio player logic (one at a time)
+    document.querySelectorAll('.audio-demo').forEach(container => {
+      const player = container.querySelector('.audio-player');
+      const audio = container.querySelector('audio');
+      const btn = player.querySelector('button');
+      const slider = player.querySelector('input[type=range]');
+      const timeSpan = player.querySelector('.time');
+      let totalDurationFormatted = '--:--';
+
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${minutes}:${secs}`;
+      }
+      function updatePlayerTime() {
+        const currentTimeFormatted = formatTime(audio.currentTime);
+        timeSpan.textContent = `${currentTimeFormatted} / ${totalDurationFormatted}`;
+        if (!isNaN(audio.duration)) {
+          slider.value = audio.currentTime;
+        }
+      }
+      audio.addEventListener('loadedmetadata', () => {
+        if (!isNaN(audio.duration)) {
+          totalDurationFormatted = formatTime(audio.duration);
+          slider.max = audio.duration;
+          updatePlayerTime();
+        }
+      });
+      audio.addEventListener('durationchange', () => {
+        if (!isNaN(audio.duration)) {
+          totalDurationFormatted = formatTime(audio.duration);
+          slider.max = audio.duration;
+          updatePlayerTime();
+        }
+      });
+      btn.addEventListener('click', () => {
+        // Pause all other audios
+        document.querySelectorAll('.audio-demo audio').forEach(a => { if (a !== audio) { a.pause(); a.currentTime = 0; a.parentElement.querySelector('button').textContent = '▶'; }});
+        if (audio.paused) {
+          audio.play().catch(e => console.error('Error playing audio:', e));
+          btn.textContent = '❚❚';
+        } else {
+          audio.pause();
+          btn.textContent = '▶';
+        }
+      });
+      audio.addEventListener('timeupdate', updatePlayerTime);
+      audio.addEventListener('ended', () => {
+        btn.textContent = '▶';
+        slider.value = 0;
+        audio.currentTime = 0;
+        updatePlayerTime();
+      });
+      slider.addEventListener('input', () => {
+        if (!isNaN(audio.duration)) {
+          audio.currentTime = slider.value;
+          updatePlayerTime();
+        }
+      });
+      // Initial state
+      if (audio.readyState >= 1 && !isNaN(audio.duration)) {
+        totalDurationFormatted = formatTime(audio.duration);
+        slider.max = audio.duration;
+        updatePlayerTime();
+      } else {
+        timeSpan.textContent = `0:00 / ${totalDurationFormatted}`;
+      }
+    });
+  </script>
+</body>
+</html> 
