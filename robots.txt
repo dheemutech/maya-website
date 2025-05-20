@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
-
+Allow: /media
+Allow: /indicvault.jpeg
+ 
 Sitemap: https://mayaresearch.ai/sitemap.xml 
